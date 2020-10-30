@@ -1,0 +1,29 @@
+.post-container {
+    width: 70%;
+    margin: auto;
+    margin-top: 3vw;
+}
+
+#post-title {
+    width: 45%;
+    height: 3vw;
+    margin-bottom: 2vw;
+    border: 0.01vw solid #dddcdc;
+    padding-left: 1vw;
+}
+
+#is-notice {
+    font-size: 1vw;
+}
+
+#cbox {
+    margin-top: 1vw;
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.done {
+    border: none;
+    margin-right: 1vw;
+    margin-top: 0vw;
+}

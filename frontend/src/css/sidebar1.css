@@ -1,0 +1,22 @@
+.sidebar li {
+    list-style: none;
+    float: left;
+    padding: 2vw 3vw;
+    font-size: 1.3vw;
+    font-weight: 550;
+    background-color: #f1f1f1;
+    border: 0.01vw solid #e7e6e6;
+    margin-top: 5vw;
+}
+
+.sidebar li:hover {
+    background-color: #549daa;
+    color: white;
+}
+
+.sidebar {
+    display: table; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+

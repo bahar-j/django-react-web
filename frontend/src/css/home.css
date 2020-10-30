@@ -1,0 +1,9 @@
+.flex-container {
+    justify-content: space-around;
+    display: flex;
+    width: 60%;
+    margin: auto;
+    padding-left: 3vw;
+    margin-top: 3vw;
+    margin-bottom: 3.3vw;
+}

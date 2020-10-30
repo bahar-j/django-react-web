@@ -1,0 +1,35 @@
+.footer {
+    background-color: #f1f1f1;
+    height: 7.3vw;
+    padding-top: 2.8vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    margin-left: -0.5vw;
+    margin-right: -0.5vw;
+    font-size: 0.9vw;
+    color: #2C2D2D;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo-btm {
+    float:right;
+    width: 15%;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.sub-link {
+    padding-left: 16.5vw;
+    height: 4vw;
+    margin-top: 5vw;
+    border-top: 0.01vw solid #e7e6e6;
+    border-bottom: 0.01vw solid #e7e6e6;
+}
+
+.sub-link li {
+    list-style: none;
+    font-size: 0.9vw;
+    float: left;
+    padding-right: 1.2vw;
+    line-height: 4vw;
+}

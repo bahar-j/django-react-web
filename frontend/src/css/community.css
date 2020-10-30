@@ -1,0 +1,106 @@
+
+/* 게시판 타이틀 부분 */
+.title-container {
+    margin-top: 4.5vw;
+    margin-bottom: 3.5vw;
+    margin-left: 18vw;
+}
+.notice-title {
+    font-size: 2.5vw;
+    color: #106E79;
+    font-weight: bold;
+}
+
+
+/* 게시판 글 목록 부분 */
+.notice-table {
+    width: 77%;
+    margin: auto;
+    font-size: 1.1vw;
+    line-height: 4vw;
+    text-align: center;
+    border: 1px solid #444444;
+}
+
+.long {
+    width: 55%;
+    text-align: left;
+    padding-left: 3vw;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.notice-table td {
+    border: 1px solid #dadada;
+}
+
+.notice-table tr:first-child {
+    font-weight: bold;
+    background-color: #f7f7f7;
+}
+
+tr:hover {
+    background-color: #faf9f9;
+}
+
+.important {
+    background-color: #549daa;
+    color: white;
+    padding: 0.5vw;
+}
+
+
+/* 게시판 하단 넘버링 부분 */
+.numbering {
+    list-style: none;
+    display: table; 
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 3vw;
+    font-size: 1vw;
+    
+}
+
+.numbering li {
+    float: left;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    border: 0.01vw solid #e7e6e6;
+}
+
+.numbering li:hover {
+    background-color: #99C5CE;
+}
+
+/* 게시판 버튼 */
+.notice-btn {
+    padding: 0.6vw;
+    background-color: #549daa;
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-right: 17vw;
+    margin-top: 3vw;
+    width:4vw;
+    height: 2.6vw;
+}
+
+.btnValue {
+    color: white;
+    font-size: 1vw;
+}
+
+.notice-btn:visited {
+    color: white;
+}
+
+.detailBtn {
+    margin-top: 0vw;
+    margin-right: 18vw;
+    margin-left: -16vw;
+    width: 3vw;
+}

@@ -1,0 +1,30 @@
+.construction {
+    margin-top: 4vw;
+    text-align: center;
+    line-height: 2.2vw;
+}
+
+.construction img {
+    margin-left: -1.5vw;
+    margin-bottom: 0.5vw;
+}
+
+.color-cstr {
+    color: #2C3A4E;
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.color-now {
+    color: #6ea3ad;
+}
+
+.color-ready {
+    color: #AF7A3E;
+}
+
+.cstr-desc {
+    color: #2C2D2D;
+    font-size: 1.3vw;
+    padding-top: 2vw;
+}

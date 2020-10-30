@@ -1,0 +1,24 @@
+.news-container {
+    display: flex;
+    justify-content: center;
+    color: #545454;
+    font-family: Hevetica;
+    font-size: 1.1vw;
+    margin-bottom: 3vw;
+}
+
+.news-container img {
+    margin-bottom: 3vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+
+  .photo-title {
+    margin-bottom: 3vw;
+    margin-left: 4vw;
+    margin-right: 3vw;
+  }
+
+  .photo-title:hover {
+    font-weight: 550;
+  }

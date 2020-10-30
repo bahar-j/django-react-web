@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'hufs';
+    src: local('hufs'), url(./fonts/한국외대체M.otf) format('opentype');
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    color: #2C2D2D;
+}
+
+html a {
+    color: #2C2D2D;
+    text-decoration: none;
+}
+
+html a:hover {
+    color: #2C2D2D;
+    text-decoration: none;
+}
+
+html a:visited {
+    color: #2C2D2D;
+    text-decoration: none;
+}
+
+html a:link {
+    color: #2C2D2D;
+    text-decoration: none;
+}

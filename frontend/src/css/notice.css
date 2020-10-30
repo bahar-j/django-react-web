@@ -1,0 +1,31 @@
+
+/* 공지사항 디테일 페이지 */
+.notice-detail {
+    width: 70%;
+    margin-top: 15vw;
+    margin-right: 5vw;
+    margin: auto;
+    font-size: 1.0vw;
+}
+
+.notice-detail li {
+    padding: 0.5vw;
+    padding-left: 2vw;
+    list-style: none;
+    border-bottom: 0.09px solid #c0c2c2;
+}
+
+.notice-detail li:first-child {
+    background-color: #f1f1f1;
+    color: #2C2D2D;
+    font-weight: bold;
+    line-height: 3.3vw;
+    border-top: 0.09px solid #c0c2c2;
+}
+
+.notice-detail li:nth-child(2) {
+    line-height: 2vw;
+    font-weight: bold;
+    background-color: #e6e4e4;
+}
+
