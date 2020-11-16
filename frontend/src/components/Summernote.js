@@ -17,8 +17,8 @@ function Summernote(props) {
   let boardName = '';
   const [content, setContent] = useState([]);
   const [image, setImage] = useState({ file : null });
-  const base = 'http://3.35.88.14/api/'; // 서버 주소
-  const imageBase = 'http://127.0.0.1:8000/photo/'; // 현재 로컬 주소
+  const base = 'http://site_url/api/'; // 서버 주소
+  const imageBase = 'http://site_url/photo/'; // 현재 로컬 주소
   var path = window.location.href;
 
   // const [files, setFile] = useState(null);
