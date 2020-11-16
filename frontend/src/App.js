@@ -8,6 +8,7 @@ import HomeScreen from "./screens/HomeScreen";
 
 import PostDetail from "./components/PostDetail";
 import CreatePost from "./components/Summernote";
+import UpdatePost from "./components/Update";
 
 import ProgramScreen from "./screens/ProgramScreen";
 import MentoScreen from "./screens/MentoScreen";
@@ -54,6 +55,7 @@ function App() {
           <Route path="/foundation" component={FoundationScreen} />
           <Route path="/greeting" component={GreetingScreen} />
 
+          <Route path="/update/:id/:board" component={UpdatePost} />
           <Route path="/create/:id" component={CreatePost} />
           <Route path="/login" component={Login} />
 

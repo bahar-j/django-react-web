@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 import "../css/summernote.css";
@@ -13,22 +13,34 @@ import "bootstrap/js/tooltip";
 import "bootstrap/dist/css/bootstrap.css";
 
 function Summernote(props) {
-  const boardId = props.match.params.id;
+  const boardId = parseInt(props.match.params.board);
+  const postId = props.match.params.id;
   let boardName = '';
+  const [posts, setPosts] = useState([]);
   const [content, setContent] = useState([]);
-  const [image, setImage] = useState({ file : null });
-  const base = 'http://3.35.88.14/api/'; // 서버 주소
-  const imageBase = 'http://127.0.0.1:8000/photo/'; // 현재 로컬 주소
+  const base = 'http://3.35.88.14/api/';
+  const imageBase = 'http://127.0.0.1:8000/photo/';
   var path = window.location.href;
-
   // const [files, setFile] = useState(null);
-  if (boardId === "2") {
+  if (boardId === 2) {
     boardName = "community";
-  } else if (boardId === "3") {
+  } else if (boardId === 3) {
     boardName = "events";
-  } else if (boardId === "4") {
+  } else if (boardId === 4) {
     boardName = "business";
   }
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const { data } = await axios.get(base + postId);
+      // 현재 게시판의 게시물만 가져오기 (자료실, "공지사항", 행사안내, 멘토링 회보, 경영공시)
+      setPosts(data);
+      setContent(data['content']);
+      document.querySelector("#post-title").value = data['title'];
+      document.querySelector("#cbox").checked = data['isNotice'];
+    };
+    fetchPosts();
+  }, []);
 
   const onChange = (content) => {
     setContent(content);
@@ -40,12 +52,8 @@ function Summernote(props) {
   //     setFile(files);
   // };
 
-  const imageChangedHandler = (e) => {
-      console.log(e.target.files[0]);
-      setImage({ file : e.target.files[0] });
-  }
-
   const onImageUpload = (images, insertImage) => {
+    // const IMAGE_PATH = 'http://www.hufsmentoring.or.kr/media/summernote/';
     for (let i = 0; i < images.length; i++) {
       let data = new FormData();
       data.append("image", images[i]);
@@ -54,9 +62,9 @@ function Summernote(props) {
       axios.post(imageBase, data)
       .then( function(response){
         console.log(response.data['filename'])
-        // 개발 환경에서는 "/static/"으로 해줘야 돌아감
-        insertImage("/media/summernote/" + response.data['filename']);
-      }).catch( (e) => {
+        insertImage("/static/" + response.data['filename']);
+        // insertImage("../../media/" + response.data['filename']);
+      }).catch( e => {
         console.log(e)
       })
 
@@ -64,25 +72,24 @@ function Summernote(props) {
   };
 
   const createPost = () => {
+    // const editorToHtml = draftToHtml(
+    //   convertToRaw(editorState.getCurrentContent())
+    // );
+    // const formData = new FormData();
+    // for(let i = 0; i< files.length; i++) {
+    //     formData.append('file', files[i])
+    // }
+    // const config = {
+    //   headers: {
+    //     "content-type": "multipart/form-data"
+    //   }
+    // };
+    // console.log(files[0]);
+    // axios.post(`uploadAPI`, formData, config);
     const title = document.querySelector("#post-title").value;
     const checked = document.querySelector("#cbox").checked;
-    let thumbnailURL = ''
-    let thumbnail = new FormData();
-    console.log(image['file']);
-    thumbnail.append("image", image['file']);
-
-    const createThumbnail = async () => {
-      await axios.post(imageBase, thumbnail)
-      .then( function(response){
-      thumbnailURL = "/media/summernote/" + response.data['filename']
-      console.log(window.location.origin + thumbnailURL)
-    }).catch ((error) => {
-      console.log(error);
-    })}
-    createThumbnail();
-
     const createData = async () => {
-      await axios.post(base, {
+      await axios.put(base + postId, {
         title: title,
         content: content.toString(),
         board: parseInt(boardId),
@@ -90,7 +97,6 @@ function Summernote(props) {
         published: moment().format(),
         isNotice: Boolean(checked),
         author: 1,
-        thumbnail: window.location.origin + thumbnailURL,
         // document: files[0],
       });
     };
@@ -107,7 +113,7 @@ function Summernote(props) {
     <div className="post-container">
       <input type="text" id="post-title" placeholder=" 제목" />
       <ReactSummernote
-        value="내용을 입력하여주세요"
+        value={content}
         options={{
           lang: "ko-KR",
           height: 500,
@@ -131,7 +137,6 @@ function Summernote(props) {
       <br />
       <br />
       {/* 파일 첨부: <input type="file" multiple onChange={fileChangedHandler} /><br /> */}
-      <input type="file" accept="image/*" onChange={imageChangedHandler} /><br />
       <input
         type="button"
         className="notice-btn done"
